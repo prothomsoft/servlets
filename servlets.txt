@@ -1,0 +1,8 @@
+tomcat 7
+
+1. Use Tomcat installation (takes control of Tomcat installation)
+2. mvn archetype:generate -DgroupId=web.tomek -DartifactId=servlets -Dversion=1.0-SNAPSHOT -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+3. set Targeted Runtimes
+4. http://localhost:8080/servlets/
+5. set servlet in src/main/java folder
+6/ set tests in src/test/java folder
