@@ -6,3 +6,14 @@ tomcat 7
 4. http://localhost:8080/servlets/
 5. set servlet in src/main/java folder
 6/ set tests in src/test/java folder
+
+you cannot forward request which is commited (send to the client) -> IllegalStateException
+HttpSession
+ServletContext
+HttpServletContext
+
+So in the following pull request: 
+http://repo.lumesse.local/projects/TLK/repos/talentlink/pull-requests/4430/diff
+we added new parameter to stored procedure. 
+If the script is run and code line is not patched, than code can call procedure and the language parameter will not be passed.
+In this case we receive error, as the procedure is overloaded (it works like overloading in Java) and it is not found any more.

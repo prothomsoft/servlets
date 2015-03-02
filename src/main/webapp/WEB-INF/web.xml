@@ -5,15 +5,48 @@
 <web-app>
   <display-name>Domel servlets playground</display-name>
   
+  <context-param>
+    <param-name>adminEmailContext</param-name>
+    <param-value>tprokop@prothomsoft.com</param-value>
+  </context-param>
+  
+  <context-param>
+    <param-name>breed</param-name>
+    <param-value>domel breed</param-value>
+  </context-param>
+
+  <listener>
+      <listener-class>servlets.controler.MyServletContextListener</listener-class>
+  </listener>
+  
+  <listener>
+      <listener-class>servlets.listeners.BeerSessionCounterListener</listener-class>
+  </listener>
+  
+  <listener>
+      <listener-class>servlets.listeners.BeerAttributeListener</listener-class>
+  </listener>
+  
   <servlet>
   	<servlet-name>BeerServlet</servlet-name>
-  	<display-name>BeerServlet</display-name>
-  	<description></description>
   	<servlet-class>servlets.controler.BeerServlet</servlet-class>
+  	<init-param>
+  	    <param-name>adminEmail</param-name>
+  	    <param-value>tprokop@prothomsoft.com</param-value>
+  	</init-param>
+  	<init-param>
+        <param-name>userEmail</param-name>
+        <param-value>tprokop@prothomsoft.com</param-value>
+    </init-param>
   </servlet>
   <servlet-mapping>
   	<servlet-name>BeerServlet</servlet-name>
   	<url-pattern>/beer/BeerServletUrl.do</url-pattern>
   </servlet-mapping>
+  
+  <session-config>
+      <session-timeout>15</session-timeout>
+  </session-config>
+      
   
 </web-app>
