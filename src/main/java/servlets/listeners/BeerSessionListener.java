@@ -3,7 +3,7 @@ package servlets.listeners;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-public class BeerSessionCounterListener implements HttpSessionListener {
+public class BeerSessionListener implements HttpSessionListener {
 
     static private int activeSession;
 
@@ -11,11 +11,11 @@ public class BeerSessionCounterListener implements HttpSessionListener {
         return activeSession;
     }
 
-    public void sessionCreated(HttpSessionEvent arg0) {
+    public void sessionCreated(HttpSessionEvent event) {
         activeSession++;
     }
 
-    public void sessionDestroyed(HttpSessionEvent arg0) {
+    public void sessionDestroyed(HttpSessionEvent event) {
         activeSession--;
     }
 }

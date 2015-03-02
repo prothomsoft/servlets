@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import servlets.listeners.BeerSessionCounterListener;
+import servlets.listeners.BeerSessionListener;
+import servlets.listeners.SessionBindingActivationListener;
 import servlets.model.BeerExpert;
-import servlets.model.Dog;
 
 public class BeerServlet extends HttpServlet{
 
@@ -50,7 +50,7 @@ public class BeerServlet extends HttpServlet{
         }
         request.setAttribute("emailNames", emails.toString());
 
-        Dog dog = (Dog) getServletContext().getAttribute("dog");
+        SessionBindingActivationListener dog = (SessionBindingActivationListener) getServletContext().getAttribute("dog");
         request.setAttribute("breed", dog.getBreed());
 
         String sessionStatus = "Old";
@@ -60,6 +60,7 @@ public class BeerServlet extends HttpServlet{
         if(session.isNew()) {
             sessionStatus = "New";
         }
+
         request.setAttribute("sessionStatus", sessionStatus);
 
         // how to set cookies
@@ -79,7 +80,7 @@ public class BeerServlet extends HttpServlet{
         }
 
         //get session information from listener
-        int activeSessions = BeerSessionCounterListener.getActiveSessions();
+        int activeSessions = BeerSessionListener.getActiveSessions();
         request.setAttribute("activeSessions", activeSessions);
 
 	    RequestDispatcher view = request.getRequestDispatcher("result.jsp");

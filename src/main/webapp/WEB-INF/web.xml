@@ -16,11 +16,11 @@
   </context-param>
 
   <listener>
-      <listener-class>servlets.controler.MyServletContextListener</listener-class>
+      <listener-class>servlets.listeners.MyServletContextListener</listener-class>
   </listener>
   
   <listener>
-      <listener-class>servlets.listeners.BeerSessionCounterListener</listener-class>
+      <listener-class>servlets.listeners.BeerSessionListener</listener-class>
   </listener>
   
   <listener>

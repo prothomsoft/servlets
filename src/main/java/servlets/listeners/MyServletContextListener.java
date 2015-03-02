@@ -1,10 +1,8 @@
-package servlets.controler;
+package servlets.listeners;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-
-import servlets.model.Dog;
 
 public class MyServletContextListener implements ServletContextListener {
 
@@ -17,7 +15,7 @@ public class MyServletContextListener implements ServletContextListener {
         // TODO Auto-generated method stub
         ServletContext sc = event.getServletContext();
         String dogBreed = sc.getInitParameter("breed");
-        Dog dog = new Dog(dogBreed);
+        SessionBindingActivationListener dog = new SessionBindingActivationListener(dogBreed);
         sc.setAttribute("dog", dog);
     }
 
