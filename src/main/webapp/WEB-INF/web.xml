@@ -4,7 +4,7 @@
 
 <web-app>
   <display-name>Domel servlets playground</display-name>
-  
+    
   <context-param>
     <param-name>adminEmailContext</param-name>
     <param-value>tprokop@prothomsoft.com</param-value>
@@ -47,6 +47,5 @@
   <session-config>
       <session-timeout>15</session-timeout>
   </session-config>
-      
   
 </web-app>

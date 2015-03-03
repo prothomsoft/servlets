@@ -1,6 +1,7 @@
 package servlets.controler;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
@@ -15,6 +16,9 @@ import javax.servlet.http.HttpSession;
 import servlets.listeners.BeerSessionListener;
 import servlets.listeners.SessionBindingActivationListener;
 import servlets.model.BeerExpert;
+import foo.Dog;
+import foo.Person;
+import foo.Toy;
 
 public class BeerServlet extends HttpServlet{
 
@@ -82,6 +86,34 @@ public class BeerServlet extends HttpServlet{
         //get session information from listener
         int activeSessions = BeerSessionListener.getActiveSessions();
         request.setAttribute("activeSessions", activeSessions);
+
+        // accessing properties in EL
+        List nums = new ArrayList();
+        nums.add("0");
+        nums.add("1");
+        nums.add("2");
+        request.setAttribute("numbers", nums);
+
+        // accessing properties in EL
+        Person p = new Person();
+        p.setName("Leelu");
+        Dog d = new Dog();
+        d.setName("Clyde");
+        Toy toy1 = new Toy();
+        toy1.setName("stick");
+        Toy toy2 = new Toy();
+        toy2.setName("neighbor's car");
+        Toy toy3 = new Toy();
+        toy3.setName("barbie doll head");
+        d.setToys(new Toy[]{toy1, toy2, toy3});
+        p.setDog(d);
+        request.setAttribute("person", p);
+
+
+
+
+        String[] favoriteMusic = {"Zero 7", "Tahiti 80", "BT", "Frou Frou"};
+        request.setAttribute("musicList", favoriteMusic);
 
 	    RequestDispatcher view = request.getRequestDispatcher("result.jsp");
 	    view.forward(request, response);
