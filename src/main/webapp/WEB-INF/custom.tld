@@ -1,0 +1,17 @@
+<taglib>
+    <tlib-version>1.0</tlib-version>
+    <jsp-version>2.0</jsp-version>
+    <short-name>Example TLD</short-name>
+    <uri>DomelTagLibrary</uri>
+    <function>
+        <name>hello</name>
+        <function-class>servlets.tags.HelloFunction</function-class>
+        <function-signature>java.lang.String hello()</function-signature>
+    </function> 
+    <tag>
+        <name>Hello</name>
+        <tag-class>servlets.tags.HelloTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    
+</taglib>
