@@ -109,8 +109,8 @@ public class BeerServlet extends HttpServlet{
         p.setDog(d);
         request.setAttribute("person", p);
 
-
-
+        // set user name in request for forward
+        request.setAttribute("userName", "userNameForForward");
 
         String[] favoriteMusic = {"Zero 7", "Tahiti 80", "BT", "Frou Frou"};
         request.setAttribute("musicList", favoriteMusic);

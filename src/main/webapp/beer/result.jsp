@@ -1,6 +1,7 @@
 <%@ page import="java.util.*" %>
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="domelTL" uri="DomelTagLibrary"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <body>
@@ -9,8 +10,8 @@
 <domelTL:Hello/>
 <br/><br/>
 
-<!-- how to call funtion -->
-${domelTL:hello()}
+<!-- how to call funtion name comes from custom.tld and it is not function name -->
+${domelTL:helloDifferentName("Tomasz")}
 <br/><br/>
 
 <!-- it happens at translation time -->
@@ -18,7 +19,9 @@ ${domelTL:hello()}
 <br/><br/>
 
 <!-- it happens at runtime -->
-<jsp:include page="header.jsp" />
+<jsp:include page="header.jsp">
+    <jsp:param name="subTitle" value="We take the string" />
+</jsp:include>
 <br/><br/>
 
 ${musicList[numbers[0]]}
@@ -96,8 +99,21 @@ out.println(activeSessions);
 <%! int x = 42; %>
 <% int x = 22; %>
 <%=x %>
-
 <br/>
+
+<%if(request.getAttribute("userName") == null) {%>
+    <!-- with jsp:forward action buffor is cleared before the forward -->
+    <jsp:forward page="exit.jsp"></jsp:forward>
+<%} else {%>
+    Hello <%= request.getAttribute("userName").toString() %> ${requestScope.userName}
+<%}%>
+<br/>
+
+<c:if test="${empty requestScope.userName}">
+    <jsp:forward page="exit.jsp"></jsp:forward>
+</c:if>
+
+
 <a href="/servlets">Go back to start</a>
 </body>
 </html>
