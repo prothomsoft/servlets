@@ -1,10 +1,24 @@
 <%@ page import="java.util.*" %>
 <%@ page isELIgnored="false" %>
+
 <%@ taglib prefix="domelTL" uri="DomelTagLibrary"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <body>
+
+<!-- jsp bean how to set type (interface) and class which is required -->
+<jsp:useBean id="employee" type="foo.Person" class="foo.Employee" scope="request">
+    <jsp:setProperty name="employee" property="name" value="Fred Employee" />
+</jsp:useBean>
+<jsp:getProperty name="employee" property="name" />
+<br/><br/>
+
+<jsp:useBean id="person" type="foo.Person" class="foo.Person" scope="request">
+    <jsp:setProperty name="person" property="name" value="Fred Person" />
+</jsp:useBean>
+<jsp:getProperty name="person" property="name" />
+<br/><br/>
 
 <!-- how to call tag -->
 <domelTL:Hello/>
@@ -22,6 +36,10 @@ ${domelTL:helloDifferentName("Tomasz")}
 <jsp:include page="header.jsp">
     <jsp:param name="subTitle" value="We take the string" />
 </jsp:include>
+<br/><br/>
+
+<!-- it happens in request time -->
+<c:import url="header.jsp"></c:import>
 <br/><br/>
 
 ${musicList[numbers[0]]}
@@ -112,6 +130,9 @@ out.println(activeSessions);
 <c:if test="${empty requestScope.userName}">
     <jsp:forward page="exit.jsp"></jsp:forward>
 </c:if>
+
+<!-- just to call error page -->
+<% //int x1 = 10/0; %>
 
 
 <a href="/servlets">Go back to start</a>

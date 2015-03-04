@@ -20,3 +20,6 @@ In this case we receive error, as the procedure is overloaded (it works like ove
 
 There is NO = in EL
 EL is null friendly
+
+. can be always converted to []
+474
