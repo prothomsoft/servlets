@@ -10,7 +10,7 @@
 <body>
 
 <%java.util.List<servlets.model.Movie> optionsList =  (java.util.List<servlets.model.Movie>)request.getAttribute("movies"); %>
-<domelTL:options optionsList="<%=optionsList%>"></domelTL:options>
+<domelTL:options optionsList="<%=optionsList%>" testAttr="Tomek"></domelTL:options>
 <br/><br/> 
 
 
