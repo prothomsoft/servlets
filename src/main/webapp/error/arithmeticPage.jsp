@@ -1,2 +1,2 @@
-<%@page isErrorPage="true" %>
+<%@ page isErrorPage="true" %>
 Arithmetic exception page

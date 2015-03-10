@@ -3,7 +3,6 @@
 
 <%@ taglib prefix="domelTL" uri="DomelTagLibrary"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <html>
 <body>
 
@@ -21,7 +20,16 @@
 <br/><br/>
 
 <!-- how to call tag -->
-<domelTL:Hello/>
+Tag with required EL argument:
+<domelTL:hello user="${requestScope.userName}" />
+<br/>
+Tag with scripting expression:
+<domelTL:hello user='<%= request.getAttribute("userName").toString() %>' />
+<br/>
+Tag with standard action:
+<domelTL:hello>
+    <jsp:attribute name="user">${requestScope.userName}</jsp:attribute>
+</domelTL:hello>
 <br/><br/>
 
 <!-- how to call funtion name comes from custom.tld and it is not function name -->

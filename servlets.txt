@@ -22,4 +22,10 @@ There is NO = in EL
 EL is null friendly
 
 . can be always converted to []
-474
+
+only officially-designated error pages get the exception object.
+
+rtexprvalue is default false - so can take only String.
+possible values for tag body are: empty, scriptless, tagdependent, JSP
+
+http://stackoverflow.com/questions/22770980/jsessionid-cookie-doesnt-expire-after-chrome-closing

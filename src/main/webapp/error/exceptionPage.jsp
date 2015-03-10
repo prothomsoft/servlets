@@ -1,5 +1,5 @@
-<%@page isErrorPage="true" %>
-<%@page isELIgnored="false" %>
+<%@ page isErrorPage="true" %>
+<%@ page isELIgnored="false" %>
 
 Exception page
 ${pageContext.exception}

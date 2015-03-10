@@ -12,10 +12,12 @@ public class BeerSessionListener implements HttpSessionListener {
     }
 
     public void sessionCreated(HttpSessionEvent event) {
+        System.out.println("session created");
         activeSession++;
     }
 
     public void sessionDestroyed(HttpSessionEvent event) {
+        System.out.println("session destroyed");
         activeSession--;
     }
 }
