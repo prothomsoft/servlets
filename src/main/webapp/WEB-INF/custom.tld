@@ -6,15 +6,29 @@
     <tlib-version>1.2</tlib-version> 
     <short-name>ExampleTags</short-name>
     <uri>DomelTagLibrary</uri>
+    
     <tag>
         <description>random advice</description>
         <name>hello</name>
         <tag-class>servlets.tags.HelloTag</tag-class>
-        <body-content>empty</body-content>
+        <body-content>scriptless</body-content>
         <attribute>
             <name>user</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <description>options list</description>
+        <name>options</name>
+        <tag-class>servlets.tags.OptionsTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>optionsList</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.util.List</type>
         </attribute>
     </tag>    
     
@@ -22,5 +36,6 @@
         <name>helloDifferentName</name>
         <function-class>servlets.tags.HelloFunction</function-class>
         <function-signature>java.lang.String hello(java.lang.String)</function-signature>
-    </function>    
+    </function>
+        
 </taglib>

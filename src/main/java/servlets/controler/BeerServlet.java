@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import servlets.listeners.BeerSessionListener;
 import servlets.listeners.SessionBindingActivationListener;
 import servlets.model.BeerExpert;
+import servlets.model.Movie;
 import foo.Dog;
 import foo.Person;
 import foo.Toy;
@@ -115,9 +116,16 @@ public class BeerServlet extends HttpServlet{
         String[] favoriteMusic = {"Zero 7", "Tahiti 80", "BT", "Frou Frou"};
         request.setAttribute("musicList", favoriteMusic);
 
+        List<Movie> movies = new ArrayList<Movie>();
+        Movie movie1 = new Movie("m1", "t1");
+        movies.add(movie1);
+        Movie movie2 = new Movie("m2", "t2");
+        movies.add(movie2);
+        request.setAttribute("movies", movies);
+
+
 	    RequestDispatcher view = request.getRequestDispatcher("result.jsp");
 	    view.forward(request, response);
-
 
 
 

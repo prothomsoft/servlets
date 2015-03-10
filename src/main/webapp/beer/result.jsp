@@ -1,10 +1,21 @@
 <%@ page import="java.util.*" %>
+<%@ page import="servlets.model.Movie" %>
 <%@ page isELIgnored="false" %>
 
 <%@ taglib prefix="domelTL" uri="DomelTagLibrary"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ taglib prefix="tagiTag" tagdir="/WEB-INF/tags" %>
 <html>
 <body>
+
+<%java.util.List<servlets.model.Movie> optionsList =  (java.util.List<servlets.model.Movie>)request.getAttribute("movies"); %>
+<domelTL:options optionsList="<%=optionsList%>"></domelTL:options>
+<br/><br/> 
+
+
+<tagiTag:TagiTag subTitle="This is subtitle for tag">This is body</tagiTag:TagiTag>
+<br/><br/>
 
 <!-- jsp bean how to set type (interface) and class which is required -->
 <jsp:useBean id="employee" type="foo.Person" class="foo.Employee" scope="request">
@@ -19,16 +30,25 @@
 <jsp:getProperty name="person" property="name" />
 <br/><br/>
 
+<c:forEach items="${movieCollection}" var="movie">
+      <br>${movie.name}
+</c:forEach>
+
+
 <!-- how to call tag -->
 Tag with required EL argument:
-<domelTL:hello user="${requestScope.userName}" />
+<domelTL:hello user="${requestScope.userName}">${2+3} ${message}</domelTL:hello>
 <br/>
 Tag with scripting expression:
-<domelTL:hello user='<%= request.getAttribute("userName").toString() %>' />
+<domelTL:hello user='<%= request.getAttribute("userName").toString() %>'>
+${2+3} 
+${message}
+</domelTL:hello>
 <br/>
 Tag with standard action:
 <domelTL:hello>
     <jsp:attribute name="user">${requestScope.userName}</jsp:attribute>
+    <jsp:body>${2+3} ${message}</jsp:body>    
 </domelTL:hello>
 <br/><br/>
 
@@ -47,7 +67,9 @@ ${domelTL:helloDifferentName("Tomasz")}
 <br/><br/>
 
 <!-- it happens in request time -->
-<c:import url="header.jsp"></c:import>
+<c:import url="header.jsp">
+    <c:param name="subTitle" value="We take the string" />
+</c:import>
 <br/><br/>
 
 ${musicList[numbers[0]]}
@@ -133,15 +155,39 @@ out.println(activeSessions);
 <%} else {%>
     Hello <%= request.getAttribute("userName").toString() %> ${requestScope.userName}
 <%}%>
-<br/>
 
 <c:if test="${empty requestScope.userName}">
     <jsp:forward page="exit.jsp"></jsp:forward>
 </c:if>
 
+<c:catch var="myException">
 <!-- just to call error page -->
-<% //int x1 = 10/0; %>
+<% int x1 = 10/0; %>
+You will never see this
+</c:catch>
+<br/>
+Exception was: ${myException.message}<br/>
+WE SURVIVED
 
+<br/><br/>
+<!-- iterate through musicList -->
+<c:forEach var="music" items="${musicList}" varStatus="musicListCounter">
+    ${musicListCounter.count}
+    ${music}<br/>
+</c:forEach>
+<br/><br/>
+
+<c:choose>
+    <c:when test="${empty requestScope.userName}">test</c:when>
+    <c:otherwise>otherwise</c:otherwise>
+</c:choose>
+<br/><br/>
+
+<c:set target="${person.dog}" property="name">
+    Pies
+</c:set>
+Pies?: ${person.dog.name}
+<br/><br/>
 
 <a href="/servlets">Go back to start</a>
 </body>

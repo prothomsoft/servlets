@@ -8,7 +8,11 @@ import javax.servlet.http.HttpSessionBindingListener;
 import javax.servlet.http.HttpSessionEvent;
 
 public class SessionBindingActivationListener implements HttpSessionBindingListener, HttpSessionActivationListener, Serializable {
-    String breed;
+
+    private static final long serialVersionUID = 1L;
+
+    private String breed;
+
     public SessionBindingActivationListener(String breed) {
         this.breed = breed;
     }
