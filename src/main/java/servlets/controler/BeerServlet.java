@@ -16,10 +16,10 @@ import javax.servlet.http.HttpSession;
 import servlets.listeners.BeerSessionListener;
 import servlets.listeners.SessionBindingActivationListener;
 import servlets.model.BeerExpert;
+import servlets.model.Dog;
 import servlets.model.Movie;
-import foo.Dog;
-import foo.Person;
-import foo.Toy;
+import servlets.model.Person;
+import servlets.model.Toy;
 
 public class BeerServlet extends HttpServlet{
 

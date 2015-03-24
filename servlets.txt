@@ -33,8 +33,20 @@ EL does not permit assignments
 
 Tag file (.tag) uses JspContext instead of ServletContext.
 
-JspFragment cannot contain scripting elements.
+JspFragment cannot contain scripting elements. SimpleTags cannot have a body that includes a JSP expression tag.
 The on-arg getAttribute(String) is for page scope only. findAttribute looks all four scopes
 
-chapter 10 answers
+JspContext can be cast to PageContext.
+
+SkipPageException stops only the page that directly invoked the tag.
+
+Page directive is not available in TAG file.
+
+url-pattern has three types: EXACT MATCH, DIRECTORY MATCH, EXTENSION MATCH
+
+
+
+
+
+
 

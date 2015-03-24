@@ -1,4 +1,5 @@
-package foo;
+package servlets.model;
+
 
 public class Dog {
     private String name;

@@ -1,4 +1,3 @@
-<%@ page import="java.util.*" %>
 <%@ page import="servlets.model.Movie" %>
 <%@ page isELIgnored="false" %>
 
@@ -6,25 +5,25 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ taglib prefix="tagiTag" tagdir="/WEB-INF/tags" %>
+<jsp:directive.page import="java.util.*" />
 <html>
 <body>
 
 <%java.util.List<servlets.model.Movie> optionsList =  (java.util.List<servlets.model.Movie>)request.getAttribute("movies"); %>
 <domelTL:options optionsList="<%=optionsList%>" testAttr="Tomek"></domelTL:options>
-<br/><br/> 
-
+<br/><br/>
 
 <tagiTag:TagiTag subTitle="This is subtitle for tag">This is body</tagiTag:TagiTag>
 <br/><br/>
 
 <!-- jsp bean how to set type (interface) and class which is required -->
-<jsp:useBean id="employee" type="foo.Person" class="foo.Employee" scope="request">
+<jsp:useBean id="employee" type="servlets.model.Person" class="servlets.model.Employee" scope="request">
     <jsp:setProperty name="employee" property="name" value="Fred Employee" />
 </jsp:useBean>
 <jsp:getProperty name="employee" property="name" />
 <br/><br/>
 
-<jsp:useBean id="person" type="foo.Person" class="foo.Person" scope="request">
+<jsp:useBean id="person" type="servlets.model.Person" class="servlets.model.Person" scope="request">
     <jsp:setProperty name="person" property="name" value="Fred Person" />
 </jsp:useBean>
 <jsp:getProperty name="person" property="name" />
@@ -33,28 +32,6 @@
 <c:forEach items="${movieCollection}" var="movie">
       <br>${movie.name}
 </c:forEach>
-
-
-<!-- how to call tag -->
-Tag with required EL argument:
-<domelTL:hello user="${requestScope.userName}">${2+3} ${message}</domelTL:hello>
-<br/>
-Tag with scripting expression:
-<domelTL:hello user='<%= request.getAttribute("userName").toString() %>'>
-${2+3} 
-${message}
-</domelTL:hello>
-<br/>
-Tag with standard action:
-<domelTL:hello>
-    <jsp:attribute name="user">${requestScope.userName}</jsp:attribute>
-    <jsp:body>${2+3} ${message}</jsp:body>    
-</domelTL:hello>
-<br/><br/>
-
-<!-- how to call funtion name comes from custom.tld and it is not function name -->
-${domelTL:helloDifferentName("Tomasz")}
-<br/><br/>
 
 <!-- it happens at translation time -->
 <%@include file="header.jsp" %>
@@ -187,6 +164,27 @@ WE SURVIVED
     Pies
 </c:set>
 Pies?: ${person.dog.name}
+<br/><br/>
+
+<!-- how to call tag -->
+Tag with required EL argument:
+<domelTL:hello user="${requestScope.userName}">${2+3} ${message}</domelTL:hello>
+<br/>
+Tag with scripting expression:
+<domelTL:hello user='<%= request.getAttribute("userName").toString() %>'>
+${2+3} 
+${message}
+</domelTL:hello>
+<br/>
+Tag with standard action:
+<domelTL:hello>
+    <jsp:attribute name="user">${requestScope.userName}</jsp:attribute>
+    <jsp:body>${2+3} ${message}</jsp:body>    
+</domelTL:hello>
+<br/><br/>
+
+<!-- how to call funtion name comes from custom.tld and it is not function name -->
+${domelTL:helloDifferentName("Tomasz")}
 <br/><br/>
 
 <a href="/servlets">Go back to start</a>

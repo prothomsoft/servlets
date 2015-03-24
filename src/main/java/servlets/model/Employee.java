@@ -1,4 +1,5 @@
-package foo;
+package servlets.model;
+
 
 public class Employee extends Person {
     private String name;
