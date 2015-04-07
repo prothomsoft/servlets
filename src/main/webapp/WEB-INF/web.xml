@@ -116,6 +116,9 @@
       <auth-constraint>
           <role-name>Admin</role-name>
       </auth-constraint>
+      <user-data-constraint>
+          <transport-guarantee>NONE</transport-guarantee>
+      </user-data-constraint>
   </security-constraint>
   
   <security-constraint>
@@ -135,6 +138,9 @@
           <role-name>Admin</role-name>
           <role-name>Member</role-name>
       </auth-constraint>
+      <user-data-constraint>
+          <transport-guarantee>NONE</transport-guarantee>
+      </user-data-constraint>
   </security-constraint>
   
 </web-app>
