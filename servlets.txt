@@ -45,8 +45,18 @@ Page directive is not available in TAG file.
 url-pattern has three types: EXACT MATCH, DIRECTORY MATCH, EXTENSION MATCH
 
 
+It must go tomcat-users.xml realm
 
+<role rolename="manager-gui"/>
+   <role rolename="admin-gui"/>
+   <user username="tomcat" password="admin" roles="manager-gui, admin-gui"/>
 
+   <role rolename="Admin" />
+   <role rolename="Member" />
+   <role rolename="Guest" />
+   <user username="admin" password="admin" roles="Admin, Member, Guest" />
+   <user username="member" password="member" roles="Member, Guest" />
+   <user username="guest" password="guest" roles="Guest" />
 
 
 
