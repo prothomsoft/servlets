@@ -143,4 +143,37 @@
       </user-data-constraint>
   </security-constraint>
   
+  <filter>
+      <filter-name>BeerRequest</filter-name>
+      <filter-class>servlets.filters.BeerRequestFilter</filter-class>
+      <init-param>
+          <param-name>LogFileName</param-name>
+          <param-value>UserLog.txt</param-value>
+      </init-param>
+  </filter>
+  
+  <filter-mapping>
+      <filter-name>BeerRequest</filter-name>
+      <url-pattern>*.do</url-pattern>
+      <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+  
+  <filter-mapping>
+      <filter-name>BeerRequest</filter-name>
+      <servlet-name>BeerServlet</servlet-name>
+      <dispatcher>INCLUDE</dispatcher>
+  </filter-mapping>
+  
+  
+  <filter>
+      <filter-name>MyCompressionFilter</filter-name>
+      <filter-class>servlets.filters.MyCompressionFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+      <filter-name>MyCompressionFilter</filter-name>
+      <url-pattern>*.do</url-pattern>
+      <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+  
 </web-app>
