@@ -3,19 +3,18 @@ package servlets.patterns.decorator;
 public class WrapperDemo {
 
     public static void main(String[] args) {
-        // System.out.println("wrapper demo");
 
         TransformText transformer = new BaseWrapper(new Echo());
-        show(transformer.render("blah.")); // 'blah.'
+        show(transformer.render("blah."));
 
         transformer = new Capitalize(new Echo());
-        show(transformer.render("blah.")); // 'BLAH.'
+        show(transformer.render("blah."));
 
         transformer = new RemovePeriods(new Capitalize(new Echo()));
-        show(transformer.render("blah.")); // 'BLAH'
+        show(transformer.render("blah."));
 
         transformer = new RemovePeriods(new Echo());
-        show(transformer.render("blah.")); // 'blah'
+        show(transformer.render("blah."));
     }
 
     private static void show(String aText) {
