@@ -33,6 +33,10 @@
       <listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
   </listener>
   
+  <listener>
+        <listener-class>org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>
+  </listener>
+  
   <servlet>
   	<servlet-name>BeerServlet</servlet-name>
   	<servlet-class>servlets.controler.BeerServlet</servlet-class>
@@ -52,15 +56,33 @@
   
   <servlet>
         <servlet-name>sayhello</servlet-name>
-        <servlet-class>
-            com.sun.xml.ws.transport.http.servlet.WSServlet
-        </servlet-class>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
+  </servlet>
+  <servlet-mapping>
         <servlet-name>sayhello</servlet-name>
         <url-pattern>/sayhello</url-pattern>
-    </servlet-mapping>
+  </servlet-mapping>
+    
+  <servlet>
+        <servlet-name>Resteasy</servlet-name>
+        <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+  </servlet>
+  <servlet-mapping>
+        <servlet-name>Resteasy</servlet-name>
+        <url-pattern>/restful-services/*</url-pattern>
+  </servlet-mapping>
+  
+   <context-param>
+        <param-name>resteasy.scan</param-name>
+        <param-value>true</param-value>    
+   </context-param>
+
+    
+   <context-param>
+        <param-name>resteasy.servlet.mapping.prefix</param-name>
+        <param-value>/restful-services</param-value>
+   </context-param>
   
   <session-config>
       <session-timeout>15</session-timeout>
