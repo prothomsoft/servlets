@@ -15,6 +15,10 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
+
+/*WHEN TO USE ARGUMENT CAPTOR?
+Use ArgumentCaptor to ensure that this method was called and its argument was correct.*/
+
 public class CarsBuilderTest {
 
     @InjectMocks
@@ -62,17 +66,11 @@ public class CarsBuilderTest {
             index++;
         }
 
-
-
-
-
         for (Map.Entry<Integer, String> entry : map.entrySet()) {
             Integer order = entry.getKey();
             String value = entry.getValue();
             System.out.println(order + " " + value);
         }
-
-
     }
 
 }
