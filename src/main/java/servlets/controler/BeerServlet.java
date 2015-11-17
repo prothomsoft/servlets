@@ -123,11 +123,8 @@ public class BeerServlet extends HttpServlet{
         movies.add(movie2);
         request.setAttribute("movies", movies);
 
-
 	    RequestDispatcher view = request.getRequestDispatcher("result.jsp");
 	    view.forward(request, response);
-
-
 
 	    //response.sendRedirect("http://www.google.pl");
 	}

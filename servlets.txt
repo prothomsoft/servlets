@@ -58,5 +58,12 @@ It must go tomcat-users.xml realm
    <user username="member" password="member" roles="Member, Guest" />
    <user username="guest" password="guest" roles="Guest" />
 
+business delegate
+service locator
 
+idempotent
 
+response.getReader
+response.getInputStream
+
+Enumeration attributeNames = request.getAttributeNames();
