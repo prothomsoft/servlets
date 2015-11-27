@@ -1,8 +1,10 @@
 package servlets.listeners;
 
+import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
+@WebListener
 public class BeerSessionListener implements HttpSessionListener {
 
     static private int activeSession;

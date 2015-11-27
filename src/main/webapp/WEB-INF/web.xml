@@ -17,17 +17,23 @@
     <param-value>domel breed</param-value>
   </context-param>
 
+  <!-- @WebListener was used
   <listener>
       <listener-class>servlets.listeners.MyServletContextListener</listener-class>
   </listener>
+  -->
   
+  <!-- @WebListener was used
   <listener>
       <listener-class>servlets.listeners.BeerSessionListener</listener-class>
   </listener>
+  -->
   
+  <!-- @WebListener was used
   <listener>
       <listener-class>servlets.listeners.BeerAttributeListener</listener-class>
   </listener>
+  -->
   
   <listener>
       <listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
@@ -53,6 +59,17 @@
   	<servlet-name>BeerServlet</servlet-name>
   	<url-pattern>/beer/BeerServletUrl.do</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>NullServlet</servlet-name>
+    <servlet-class>servlets.questions.q2.NullServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NullServlet</servlet-name>
+    <url-pattern>/questions/q2/NullServlet.do</url-pattern>
+  </servlet-mapping>
+  
+  
   
   <servlet>
         <servlet-name>sayhello</servlet-name>

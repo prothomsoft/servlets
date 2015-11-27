@@ -1,8 +1,10 @@
 package servlets.listeners;
 
+import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionAttributeListener;
 import javax.servlet.http.HttpSessionBindingEvent;
 
+@WebListener
 public class BeerAttributeListener implements HttpSessionAttributeListener {
 
     public void attributeAdded(HttpSessionBindingEvent event) {
