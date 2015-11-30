@@ -23,8 +23,7 @@ public class TemplateComponent {
     public String readTemplateContent(ServletContext servletContext, String templatePath) {
         try {
             File templateFile = new File(servletContext
-                    .getResource(templatePath)
-                    .getFile());
+                    .getRealPath(templatePath));
             return FileUtils.readFileToString(templateFile);
         } catch (IOException e) {
             throw new IllegalArgumentException(e);
