@@ -5,7 +5,7 @@ import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
 @WebListener
-public class BeerSessionListener implements HttpSessionListener {
+public class MyHttpSessionListener implements HttpSessionListener {
 
     static private int activeSession;
 

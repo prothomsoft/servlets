@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import servlets.listeners.BeerSessionListener;
+import servlets.listeners.MyHttpSessionListener;
 import servlets.listeners.SessionBindingActivationListener;
 import servlets.model.BeerExpert;
 import servlets.model.Dog;
@@ -85,7 +85,7 @@ public class BeerServlet extends HttpServlet{
         }
 
         //get session information from listener
-        int activeSessions = BeerSessionListener.getActiveSessions();
+        int activeSessions = MyHttpSessionListener.getActiveSessions();
         request.setAttribute("activeSessions", activeSessions);
 
         // accessing properties in EL

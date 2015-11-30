@@ -5,7 +5,7 @@ import javax.servlet.http.HttpSessionAttributeListener;
 import javax.servlet.http.HttpSessionBindingEvent;
 
 @WebListener
-public class BeerAttributeListener implements HttpSessionAttributeListener {
+public class MyHttpSessionAttributeListener implements HttpSessionAttributeListener {
 
     public void attributeAdded(HttpSessionBindingEvent event) {
         String name = event.getName();
