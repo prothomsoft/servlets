@@ -1,6 +1,5 @@
 <%@ page import="servlets.model.Movie" %>
 <%@ page isELIgnored="false" %>
-
 <%@ taglib prefix="domelTL" uri="DomelTagLibrary"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -181,7 +180,7 @@ ${message}
 Tag with standard action:
 <domelTL:hello>
     <jsp:attribute name="user">${requestScope.userName}</jsp:attribute>
-    <jsp:body>${2+3} ${message}</jsp:body>    
+    <jsp:body>${2+3} ${message}</jsp:body>
 </domelTL:hello>
 <br/><br/>
 

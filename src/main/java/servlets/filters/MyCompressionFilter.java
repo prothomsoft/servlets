@@ -31,6 +31,7 @@ public class MyCompressionFilter implements Filter{
     }
 
     public void destroy() {
+        fc.getServletContext().log("NullFilter destroyed");
     }
 
 }

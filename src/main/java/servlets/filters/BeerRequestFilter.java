@@ -8,7 +8,6 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
 
 public class BeerRequestFilter implements Filter{
 
@@ -17,7 +16,6 @@ public class BeerRequestFilter implements Filter{
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException,
             ServletException {
 
-        HttpServletRequest httpReq = (HttpServletRequest) req;
         fc.getServletContext().log("BeerRequestFilter called");
         chain.doFilter(req, resp);
     }
@@ -28,6 +26,6 @@ public class BeerRequestFilter implements Filter{
     }
 
     public void destroy() {
-        // clean up
+        fc.getServletContext().log("NullFilter destroyed");
     }
 }

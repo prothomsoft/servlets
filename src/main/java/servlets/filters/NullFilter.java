@@ -13,20 +13,20 @@ import javax.servlet.annotation.WebFilter;
 @WebFilter("/*")
 public class NullFilter implements Filter {
 
+    private FilterConfig fc;
+
     public void destroy() {
-        // TODO Auto-generated method stub
-
+        fc.getServletContext().log("NullFilter destroyed");
     }
 
-    public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2) throws IOException,
+    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException,
             ServletException {
-        // TODO Auto-generated method stub
-
+        fc.getServletContext().log("NullFilter called");
+        chain.doFilter(req, res);
     }
 
-    public void init(FilterConfig arg0) throws ServletException {
-        // TODO Auto-generated method stub
-
+    public void init(FilterConfig fc) throws ServletException {
+        this.fc = fc;
+        fc.getServletContext().log("NullFilter initialized");
     }
-
 }

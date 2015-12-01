@@ -12,6 +12,7 @@ public class MessageUtil {
         System.out.println(message);
         int a = 0;
         int b = 1 / a;
+        System.out.println(b);
     }
 
     public String salutationMessage() {

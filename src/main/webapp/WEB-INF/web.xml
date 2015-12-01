@@ -207,7 +207,6 @@
       <dispatcher>INCLUDE</dispatcher>
   </filter-mapping>
   
-  
   <filter>
       <filter-name>MyCompressionFilter</filter-name>
       <filter-class>servlets.filters.MyCompressionFilter</filter-class>
