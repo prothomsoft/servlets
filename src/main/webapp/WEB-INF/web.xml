@@ -16,20 +16,6 @@
     <param-name>breed</param-name>
     <param-value>domel breed</param-value>
   </context-param>
-
-  <!-- @WebListener was used
-  <listener>
-      <listener-class>servlets.listeners.MyServletContextListener</listener-class>
-  </listener>
-  -->
-  
-  <listener>
-      <listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
-  </listener>
-  
-  <listener>
-        <listener-class>org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>
-  </listener>
   
   <servlet>
   	<servlet-name>BeerServlet</servlet-name>
@@ -47,6 +33,14 @@
   	<servlet-name>BeerServlet</servlet-name>
   	<url-pattern>/beer/BeerServletUrl.do</url-pattern>
   </servlet-mapping>
+  
+  
+  <servlet-mapping>
+    <servlet-name>myServlet</servlet-name>
+    <url-pattern>/MyServlet.do</url-pattern>
+  </servlet-mapping>
+  
+  
   
   <servlet>
     <servlet-name>NullServlet</servlet-name>
@@ -186,6 +180,7 @@
       </user-data-constraint>
   </security-constraint>
   
+   
   <filter>
       <filter-name>BeerRequest</filter-name>
       <filter-class>servlets.filters.BeerRequestFilter</filter-class>
@@ -207,6 +202,7 @@
       <dispatcher>INCLUDE</dispatcher>
   </filter-mapping>
   
+  
   <filter>
       <filter-name>MyCompressionFilter</filter-name>
       <filter-class>servlets.filters.MyCompressionFilter</filter-class>
@@ -217,5 +213,6 @@
       <url-pattern>*.do</url-pattern>
       <dispatcher>REQUEST</dispatcher>
   </filter-mapping>
+  
   
 </web-app>
