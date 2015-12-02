@@ -67,3 +67,5 @@ response.getReader
 response.getInputStream
 
 Enumeration attributeNames = request.getAttributeNames();
+
+The <absolute-ordering> element can only be present in the web.xml. It cannot be defined within the web-fragment.xml file.
