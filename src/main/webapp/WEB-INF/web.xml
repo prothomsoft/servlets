@@ -43,6 +43,7 @@
   
   
   <servlet>
+    <enabled>true</enabled>
     <servlet-name>NullServlet</servlet-name>
     <servlet-class>servlets.questions.q2.NullServlet</servlet-class>
   </servlet>

@@ -50,7 +50,6 @@ It must go tomcat-users.xml realm
 <role rolename="manager-gui"/>
    <role rolename="admin-gui"/>
    <user username="tomcat" password="admin" roles="manager-gui, admin-gui"/>
-
    <role rolename="Admin" />
    <role rolename="Member" />
    <role rolename="Guest" />
@@ -69,3 +68,5 @@ response.getInputStream
 Enumeration attributeNames = request.getAttributeNames();
 
 The <absolute-ordering> element can only be present in the web.xml. It cannot be defined within the web-fragment.xml file.
+
+A concrete Java annotation cannot be used more than once in a single class.

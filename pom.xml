@@ -67,6 +67,11 @@
         <version>0.1</version>
     </dependency>
     
+    <dependency>
+        <groupId>web.tomek</groupId>
+        <artifactId>contextInitializer</artifactId>
+        <version>0.1</version>
+    </dependency>
     
     <dependency>
         <groupId>org.jboss.resteasy</groupId>
