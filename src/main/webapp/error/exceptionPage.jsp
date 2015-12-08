@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     isErrorPage="true"
     pageEncoding="UTF-8"%>
@@ -14,11 +13,6 @@
         Error: ${pageContext.exception}  <br/>
     </h2>
  
-    Exception stack trace:<br/>
-     
-    <c:forEach var="trace" items="${pageContext.exception.stackTrace}">
-        ${trace}<br/>
-    </c:forEach> 
  
 </body>
 </html>

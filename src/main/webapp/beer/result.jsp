@@ -1,7 +1,7 @@
 <%@ page import="servlets.model.Movie" %>
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="domelTL" uri="DomelTagLibrary"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 <%@ taglib prefix="tagiTag" tagdir="/WEB-INF/tags" %>
 <jsp:directive.page import="java.util.*" />
@@ -30,9 +30,7 @@
 <jsp:getProperty name="person" property="name" />
 <br/><br/>
 
-<c:forEach items="${movieCollection}" var="movie">
-      <br>${movie.name}
-</c:forEach>
+
 
 <!-- it happens at translation time -->
 <%@include file="header.jsp" %>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="2.5" 
-    xmlns="http://java.sun.com/xml/ns/javaee" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
-    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"  metadata-complete="false">
+<web-app
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+    version="3.0">
+
     
   <display-name>Domel servlets playground</display-name>
     
@@ -34,14 +35,6 @@
   	<url-pattern>/beer/BeerServletUrl.do</url-pattern>
   </servlet-mapping>
   
-  
-  <servlet-mapping>
-    <servlet-name>myServlet</servlet-name>
-    <url-pattern>/MyServlet.do</url-pattern>
-  </servlet-mapping>
-  
-  
-  
   <servlet>
     <enabled>true</enabled>
     <servlet-name>NullServlet</servlet-name>
@@ -50,18 +43,6 @@
   <servlet-mapping>
     <servlet-name>NullServlet</servlet-name>
     <url-pattern>/questions/q2/NullServlet.do</url-pattern>
-  </servlet-mapping>
-  
-  
-  
-  <servlet>
-        <servlet-name>sayhello</servlet-name>
-        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-        <servlet-name>sayhello</servlet-name>
-        <url-pattern>/sayhello</url-pattern>
   </servlet-mapping>
     
   <servlet>
@@ -179,45 +160,6 @@
       <user-data-constraint>
           <transport-guarantee>NONE</transport-guarantee>
       </user-data-constraint>
-  </security-constraint>
-  
-   
-  <filter>
-      <filter-name>BeerRequest</filter-name>
-      <filter-class>servlets.filters.BeerRequestFilter</filter-class>
-      <init-param>
-          <param-name>LogFileName</param-name>
-          <param-value>UserLog.txt</param-value>
-      </init-param>
-  </filter>
-  
-  <filter-mapping>
-      <filter-name>BeerRequest</filter-name>
-      <url-pattern>*.do</url-pattern>
-      <dispatcher>REQUEST</dispatcher>
-  </filter-mapping>
-  
-  <filter-mapping>
-      <filter-name>BeerRequest</filter-name>
-      <servlet-name>BeerServlet</servlet-name>
-      <dispatcher>INCLUDE</dispatcher>
-  </filter-mapping>
-  
-  
-  <filter>
-      <filter-name>MyCompressionFilter</filter-name>
-      <filter-class>servlets.filters.MyCompressionFilter</filter-class>
-  </filter>
-  
-  <filter-mapping>
-      <filter-name>MyCompressionFilter</filter-name>
-      <url-pattern>*.do</url-pattern>
-      <dispatcher>REQUEST</dispatcher>
-  </filter-mapping>
-  
-  <absolute-ordering>
-        <name>Fragment 1</name>
-  </absolute-ordering>
-  
+  </security-constraint>  
   
 </web-app>
