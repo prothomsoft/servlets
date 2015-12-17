@@ -70,3 +70,5 @@ Enumeration attributeNames = request.getAttributeNames();
 The <absolute-ordering> element can only be present in the web.xml. It cannot be defined within the web-fragment.xml file.
 
 A concrete Java annotation cannot be used more than once in a single class.
+
+FORWARD -> client calls a Servlet but response to client is given by another Servlet

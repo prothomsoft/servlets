@@ -34,9 +34,8 @@
   	<servlet-name>BeerServlet</servlet-name>
   	<url-pattern>/beer/BeerServletUrl.do</url-pattern>
   </servlet-mapping>
-  
-  <servlet>
-    <enabled>true</enabled>
+    
+  <servlet>    
     <servlet-name>NullServlet</servlet-name>
     <servlet-class>servlets.questions.q2.NullServlet</servlet-class>
   </servlet>
@@ -58,7 +57,6 @@
         <param-name>resteasy.scan</param-name>
         <param-value>true</param-value>    
    </context-param>
-
     
    <context-param>
         <param-name>resteasy.servlet.mapping.prefix</param-name>
